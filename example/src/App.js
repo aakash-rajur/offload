@@ -4,7 +4,7 @@ import {getInstance} from "offload";
 import Header from "./components/header/";
 import Posts from "./screens/posts";
 import Users from "./screens/users";
-import {POSTS, USERS} from "./constants";
+import {POSTS} from "./constants";
 
 class App extends Component {
 	constructor(props) {
@@ -19,10 +19,9 @@ class App extends Component {
 	render() {
 		return (
 			<Fragment>
-				<Route exact path='/' component={() => <Redirect to={USERS}/>}/>
 				<Header/>
 				<Switch>
-					<Route exact path={USERS} component={Users}/>
+					<Route exact path='/' component={Users}/>
 					<Route exact path={POSTS} component={Posts}/>
 				</Switch>
 			</Fragment>
