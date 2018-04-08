@@ -10,8 +10,5 @@ import App from './App'
 
 configure({source: workerSource, threads: 2, tasks: 4});
 
-ReactDOM.render(
-	<Router>
-		<App/>
-	</Router>,
+ReactDOM.render(<Router><App/></Router>,
 	document.getElementById('root'));
