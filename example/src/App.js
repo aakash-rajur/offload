@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
+import {getInstance} from "offload";
 import Header from "./components/header/";
 import Posts from "./screens/posts";
 import Users from "./screens/users";
@@ -9,6 +10,10 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
+	}
+
+	async componentDidMount() {
+		console.log(await getInstance().getPost(1));
 	}
 
 	render() {
