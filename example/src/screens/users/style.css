@@ -1,0 +1,102 @@
+.users-layout, .no-data {
+    height: 100%;
+}
+
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.users-layout .user {
+    color: initial;
+    margin: 4px;
+    padding: 4px;
+    height: 100%;
+    display: grid;
+    grid-template: repeat(3, auto)/auto auto 1fr;
+    align-items: center;
+    grid-gap: 4px;
+}
+
+.user > * {
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 15px;
+}
+
+.user .profile {
+    grid-row: 1 / span 3;
+    width: 22vh;
+    height: auto;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.user .user-name, .email {
+    justify-self: end;
+}
+
+.user .email {
+    text-align: end;
+}
+
+.user .address {
+    grid-column: 2/span 2;
+    justify-self: end;
+    text-align: end;
+}
+
+.users-layout {
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    justify-content: space-evenly;
+    grid-gap: 16px;
+    overflow: auto;
+    height: calc(100% - 80px);
+}
+
+@media screen and (max-width: 600px) {
+    .users-layout {
+        height: calc(100% - 72px);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .users-layout .user {
+        grid-template: repeat(4, auto)/1fr 1fr;
+    }
+
+    .user .profile {
+        grid-row: initial;
+        grid-column: 1/span 2;
+        width: 100%;
+    }
+
+    .user .address {
+        grid-column: 1/span 2;
+    }
+
+    /*.user {
+    }
+
+    .profile {
+        grid-row: initial;
+        grid-column: 1/span 2;
+        justify-self: center;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+    }
+
+    .address {
+        grid-column: 1/span 2;
+        justify-self: stretch;
+        text-align: initial;
+    }
+
+    .users-layout {
+        grid-template-columns: 1fr;
+    }*/
+}

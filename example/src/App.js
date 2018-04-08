@@ -1,13 +1,28 @@
-import React, { Component } from 'react'
+import React, {Component, Fragment} from 'react';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import Header from "./components/header/";
+import Posts from "./screens/posts";
+import Users from "./screens/users";
+import {POSTS, USERS} from "./constants";
 
-import ExampleComponent from 'offload'
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
 
-export default class App extends Component {
-  render () {
-    return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
-  }
+	render() {
+		return (
+			<Fragment>
+				<Route exact path='/' component={() => <Redirect to={USERS}/>}/>
+				<Header/>
+				<Switch>
+					<Route exact path={USERS} component={Users}/>
+					<Route exact path={POSTS} component={Posts}/>
+				</Switch>
+			</Fragment>
+		);
+	}
 }
+
+export default App;

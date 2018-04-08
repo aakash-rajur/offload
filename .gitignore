@@ -9,6 +9,7 @@ build
 dist
 
 # misc
+.idea
 .DS_Store
 .env
 .env.local
@@ -19,3 +20,7 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.idea/dictionaries/
+.idea/sonarlint/
+.idea/vcs.xml
+example/package-lock.json
