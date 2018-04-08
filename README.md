@@ -15,7 +15,7 @@ npm install --save offload worker-loader
 ## Usage  
 
 # worker.js 
-File name doesn't matter. You need to define all functions that you want to be executed in the background thread. You need to **export** them as well, otherwise they won't visible to the webworker. Dynamically imported files need not do this. Only one worker file should be defined.
+File name doesn't matter. You need to define and  ```export``` all functions you want to be executed in the background pool. Failing to do so will result in webworker not recognising the function. Chunked or dynamically imported files via webpack need not do this. Only one worker file is supported.
 ```jsx harmony  
 import initialize from 'offload/dist/initialize';  
   
@@ -39,7 +39,7 @@ Read the mentioned docs below for more information. Error thrown within your fun
 Your promise will be rejected with the same message in the main thread but will lack stacktrace.
   ```
 # index.js
-You either need to add worker-loader in your webpack's config file or you can inline it as shown below. The comment is necessary if your es lint is hooked up to webpack in case you intend to inline the loader. This can be the only way in situations like wherein you're using create-react-app and you don't want to eject.
+You either need to add worker-loader in your webpack's config file or you can inline it as shown below. The comment is necessary if your es lint is hooked up to webpack in case you intend to inline the loader. This can be the only way in situations wherein you're using create-react-app and you don't want to eject.
 ```jsx harmony
 // eslint-disable-next-line import/no-webpack-loader-syntax  
 import workerSource from 'worker-loader!./worker'  
@@ -68,7 +68,7 @@ class App extends Component {
 
 ## API
 # initialize(context)
-context: you need to pass the ```this``` as a parameter. The passed object will include all the exported functions that you want to use on the main thread. Functions not exported won't be visible to ```initialize``` and hence will not be exposed to be further called in the main thread.
+context: you need to pass the ```this```, which is the file context as a parameter. The passed object will include all the exported functions that you want to call on the main thread. Functions not exported won't be visible to ```initialize``` and hence will not be exposed to further to be called within the main thread.
 ```
 Note:
 initialize file is seperate to keep the worker file minimal and and to not include the code of the singleton class that manages the workers.
@@ -103,5 +103,5 @@ Functions and errors cannot be sent over
 Big shoutout to the creator of [webpack-loader](https://github.com/webpack-contrib/worker-loader) without which this module couldn't be built
 
 ## License  
-[MIT](https://github.com/aakashRajur/offload/blob/master/LICENCE) Â© [aakashRajur](https://github.com/aakashRajur)
+[MIT](https://github.com/aakashRajur/offload/blob/master/LICENCE) © [aakashRajur](https://github.com/aakashRajur)
 Feel free to use the source anyhow you want.
