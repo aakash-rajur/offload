@@ -1,2 +1,2 @@
-export const USERS = '/users';
-export const POSTS = '/:userID/posts';
+export const USERS = '/offload/users';
+export const POSTS = '/offload/:userID/posts';

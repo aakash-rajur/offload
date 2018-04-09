@@ -26,7 +26,7 @@ function User(props) {
 				<Link
 					className="user"
 					to={{
-						pathname: `/@${props.username}/posts`,
+						pathname: `/offload/@${props.username}/posts`,
 						state: props
 					}}>
 					{content}

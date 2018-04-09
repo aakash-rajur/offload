@@ -4,7 +4,7 @@ import {getInstance} from "offload";
 import Header from "./components/header/";
 import Posts from "./screens/posts";
 import Users from "./screens/users";
-import {POSTS} from "./constants";
+import {POSTS, USERS} from "./constants";
 
 class App extends Component {
 	constructor(props) {
@@ -20,8 +20,9 @@ class App extends Component {
 		return (
 			<Fragment>
 				<Header/>
+				<Redirect to={USERS}/>
 				<Switch>
-					<Route exact path='/' component={Users}/>
+					<Route exact path={USERS} component={Users}/>
 					<Route exact path={POSTS} component={Posts}/>
 				</Switch>
 			</Fragment>
