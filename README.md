@@ -8,6 +8,7 @@
 Worker build file in the provided example is less than 18KB. Supports chunking and dynamic import. Follows singleton pattern wherein a single object is managing all function calls. Function calls after exhausting the defined task limit is queued. Tasks are assigned to that thread which has the least amount of active tasks and pending tasks combined.
 
 [DEMO](https://aakashrajur.github.io/offload/)
+
 [DEMO SOURCE](https://github.com/aakashRajur/offload/tree/master/example)
 
 ## Installation
@@ -84,7 +85,9 @@ of the singleton class that manages the workers.
 
 # configure({source, threads, tasks})
 source => the source file in which all your functions are defined.  (**REQUIRED**)
+
 threads => the number of threads that you want to be spawned.  (**DEFAULT: 1**)
+
 tasks => the number of tasks each thread will simultaneously take on. (**DEFAULT: 4**)
 
 ```
