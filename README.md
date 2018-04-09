@@ -108,7 +108,9 @@ thread version from getInstance() object will be a promise regardless.
 ## Note
 Objects passed to the workers are clones and not references.
 Functions and errors cannot be sent over
+
 [Further Reading](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
+
 [Webworker API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
 
 ## Dependency
