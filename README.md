@@ -69,7 +69,7 @@ configure({source: workerSource, threads: 2, tasks: 4});
   ```  
   
 ### consumer.js  
-consume your function by passing your arguments parcelled into an object and a callback that will receive you updates, as parcelled objects
+consume your function by passing your arguments parcelled into an object first, and then a callback that will receive your updates again, as parcelled objects.
 ```jsx harmony  
 import {getInstance} from "offload";  
 
